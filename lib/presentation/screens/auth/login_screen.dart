@@ -166,14 +166,7 @@ class LoginScreen extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   GestureDetector(
-                                    onTap: () {
-                                      // Navigator.push(
-                                      //     context,
-                                      //     MaterialPageRoute(
-                                      //         builder: (context) => AppNavigation()));
-                                      Navigator.pushReplacementNamed(context, homeScreen);
-
-                                    },
+                                    onTap: cubit.signInWithFacebook,
                                     child: Row(
                                       children: [
                                         SizedBox(
