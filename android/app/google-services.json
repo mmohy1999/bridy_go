@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "793529273254",
+    "project_id": "bridy-go",
+    "storage_bucket": "bridy-go.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:793529273254:android:0d163b487c961d67f71d67",
+        "android_client_info": {
+          "package_name": "com.bridyGo.user.bridy_go_user"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "793529273254-usv2rghmcpjiva601no9e1aot10q4afh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bridyGo.user.bridy_go_user",
+            "certificate_hash": "d41c488b692f9294486d1e1ba0f0e73718051bb3"
+          }
+        },
+        {
+          "client_id": "793529273254-ekg7alb165o7tojjstcki2ntfguc1vqj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCea0kqhPgnJitASgWQVyWuj2n05OSVtfM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "793529273254-ekg7alb165o7tojjstcki2ntfguc1vqj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "793529273254-ld15lh0g4dosh5b7436e4ct7edsq56bq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.bridyGo.user.bridyGoUser"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,10 +1,12 @@
 import 'package:bridy_go_user/constants/strings.dart';
-import 'package:bridy_go_user/data/models/user.dart';
+import 'package:bridy_go_user/data/models/user.dart' as user_model;
 import 'package:bridy_go_user/data/repository/auth_repository.dart';
 import 'package:bridy_go_user/data/web_serves/auth_web_server.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 import '../../constants/my_colors.dart';
@@ -33,7 +35,7 @@ class AuthCubit extends Cubit<AuthState> {
   login(context) {
     if (formGlobalKey.currentState!.validate()) {
       formGlobalKey.currentState!.save();
-      User user = User.login(email: emailController.text, password: passwordController.text);
+      user_model.User user = user_model.User.login(email: emailController.text, password: passwordController.text);
       _authRepository.login(user).then((user) {
         if (user != null) {
           mUser = user;
@@ -86,7 +88,7 @@ class AuthCubit extends Cubit<AuthState> {
   register(context) {
     if (formGlobalKey.currentState!.validate()) {
       formGlobalKey.currentState!.save();
-      User user = User.register(
+      user_model.User user = user_model.User.register(
           email: emailController.text,
           password: passwordController.text,
           name: nameController.text,
@@ -103,5 +105,15 @@ class AuthCubit extends Cubit<AuthState> {
         }
       });
     }
+  }
+  Future<UserCredential> signInWithFacebook() async {
+    // Trigger the sign-in flow
+    final LoginResult loginResult = await FacebookAuth.instance.login();
+
+    // Create a credential from the access token
+    final OAuthCredential facebookAuthCredential = FacebookAuthProvider.credential(loginResult.accessToken!.token);
+
+    // Once signed in, return the UserCredential
+    return FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);
   }
 }
